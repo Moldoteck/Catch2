@@ -65,7 +65,7 @@ namespace Catch {
             template <typename URng, typename Iterator, typename Estimator>
             sample resample(URng& rng, int resamples, Iterator first, Iterator last, Estimator& estimator) {
                 auto n = last - first;
-                std::uniform_int_distribution<decltype(n)> dist(0, n - 1);
+                std::uniform_int_distribution<decltype(last - first)> dist(0, n - 1);
 
                 sample out;
                 out.reserve(resamples);
